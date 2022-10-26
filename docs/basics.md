@@ -51,11 +51,9 @@ $ mkdir -p $HOME/.kube
 $ cd $HOME/.kube
 
 # get config from server
-
 $ scp <ip_or_name_of_kind_server>:/home/tha_user/.kube/config .
 
 # get the same information as on your server
-
 $ kubectl cluster-info --context kind-kind
 ```
 
@@ -69,7 +67,6 @@ $ mkdir %USERPROFILE%\.kube
 $ cd %USERPROFILE%\.kube
 
 # install the $HOME/.kube/config file here ^^^
-
 $ kubectl cluster-info --context kind-kind
 ```
 
