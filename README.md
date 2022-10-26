@@ -68,7 +68,7 @@ Hint: the default kubeconfig approach of kind is used (that is ether `$KUBECONFI
 ## Documentation
 
 
-- [quickstart](docs/quickstart.md)
+- [Basics](docs/basics.md)
 - [kindtool basic](docs/basics.md)
 - [kubeconfig](docs/kubeconfig.md)
 - [accessing the cluster from developer machine](docs/developermachine.md)
