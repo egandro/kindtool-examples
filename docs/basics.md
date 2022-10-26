@@ -72,4 +72,4 @@ $ kubectl cluster-info --context kind-kind
 
 Hint: After you setup the local .kube/config files, you can use GUI tools like OpenLens <https://github.com/MuhammedKalkan/OpenLens>.
 
-Pitfall: After deleting the cluster on your server computer with `kindtool destroy` the config files on your clients are also gone.
+Pitfall: After deleting the cluster on your server computer with `kindtool destroy` the config files on your clients are outdated.
