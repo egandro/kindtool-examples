@@ -12,4 +12,4 @@ spec:
     - ReadWriteOnce
   hostPath:
     # data is mounted unique per worker
-    path: "/mnt/data"
+    path: "/data/worker"

@@ -15,7 +15,10 @@ spec:
       image: ubuntu
       command: ["/bin/bash", "-ec", "while :; do echo '.'; sleep 5 ; done"]
       volumeMounts:
-        - mountPath: "/storage/shared"
+        - mountPath: "/data/shared"
           name: shared-storage
-        - mountPath: "/storage/worker"
+        - mountPath: "/data/worker"
           name: worker-storage
+# attach this pod to the controller (we have no workers!)
+  nodeSelector:
+    "controller": "true"
