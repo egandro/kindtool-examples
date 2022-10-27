@@ -22,19 +22,8 @@ stop-cluster:
 
 example-ingress:
 	kubectl apply -f deployment/ingress.yaml
-	@echo waiting for service to become ready
-	@while true; do \
-		kubectl get pods \
-				-l app=foo \
-				-o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}' 2>/dev/null | grep -o True >/dev/null && break ; \
-		sleep 1 ; \
-	done
-	@while true; do \
-		kubectl get pods \
-				-l app=bar \
-				-o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}' 2>/dev/null | grep -o True >/dev/null && break ; \
-		sleep 1 ; \
-	done
+	./scripts/wait-for-pod.sh foo
+	./scripts/wait-for-pod.sh bar
 
 test-service:
 	curl localhost:$(CLUSTER_HTTP_PORT)/foo
