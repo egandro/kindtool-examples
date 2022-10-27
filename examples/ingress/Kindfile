@@ -1,15 +1,5 @@
-# 'kind' is the default cluster name
-cluster_name=
-# sets kubeconfig to $(Kindfile_dir)/.kind/config/config
-# instead of $KUBECONFIG or $HOME/.kube/config
-# kind's default is false - so $KUBECONFIG or $HOME/.kube/config
-# will be used
+cluster_name=example-ingress
 local_kubeconfig=true
-# default is main IP of the host
-# set back to 127.0.0.1 if you don't want this
-api_server_address=
-# keep empty, if you want to have a randomized port
-api_server_port=
 ingress=true
 ingress_http_port=8000
 ingress_https_port=8443
