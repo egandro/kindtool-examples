@@ -4,7 +4,7 @@
 ### Do something with your new cluster
 
 ```
-$ cd 01_hello_world
+$ cd apps/hello_world
 $ kindtool up
 
 # install a deployment using the echo server
@@ -29,7 +29,7 @@ That was not super usefull, yet! There is no networking exposed to the world.
 ```
 # your server computer (VM, Linux, developer machine in internal network, ...)
 
-$ cd 01_hello_world
+$ cd apps/hello_world
 $ kindtool up
 
 # just for info get the IP/port of the k8s API Server
@@ -72,4 +72,4 @@ $ kubectl cluster-info --context kind-kind
 
 Hint: After you setup the local .kube/config files, you can use GUI tools like OpenLens <https://github.com/MuhammedKalkan/OpenLens>.
 
-Pitfall: After deleting the cluster on your server computer with `kindtool destroy` the config files on your clients are outdated.
+Pitfall: After deleting the cluster on your server computer with `kindtool destroy` the config files on your clients are invalid and needs to be updated. Restarting docker / k8s is no issue.

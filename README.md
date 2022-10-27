@@ -43,7 +43,7 @@ $ pip install kindtool
 ## Hello World
 
 ```
-$ cd 01_hello_world
+$ cd apps/hello_world
 $ kindtool up
 $ kubectl cluster-info --context kind-kind
 $ kindtool destroy
