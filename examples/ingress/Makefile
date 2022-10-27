@@ -29,6 +29,12 @@ example-ingress:
 				-o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}' 2>/dev/null | grep -o True >/dev/null && break ; \
 		sleep 1 ; \
 	done
+	@while true; do \
+		kubectl get pods \
+				-l app=bar \
+				-o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}' 2>/dev/null | grep -o True >/dev/null && break ; \
+		sleep 1 ; \
+	done
 
 test-service:
 	curl localhost:$(CLUSTER_HTTP_PORT)/foo
