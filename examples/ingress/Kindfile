@@ -4,7 +4,7 @@ cluster_name=
 # instead of $KUBECONFIG or $HOME/.kube/config
 # kind's default is false - so $KUBECONFIG or $HOME/.kube/config
 # will be used
-local_kubeconfig=false
+local_kubeconfig=true
 # default is main IP of the host
 # set back to 127.0.0.1 if you don't want this
 api_server_address=
