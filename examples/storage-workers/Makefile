@@ -14,7 +14,10 @@ start-cluster:
 	kindtool up
 
 stop-cluster:
-	kindtool destroy -f
+	@# as docker creates files as root, you need to run this as sudo
+	@# sudo kindtool destroy -f
+	@# that is why we go without the -f
+	kindtool destroy
 
 example-storage-workers:
 	kubectl apply -f deployment/storage-shared-volume.yaml
