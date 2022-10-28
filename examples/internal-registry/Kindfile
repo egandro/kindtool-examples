@@ -1,0 +1,7 @@
+cluster_name=example-internal-registry
+local_kubeconfig=true
+internal_registry=true
+# <clustername>-registry is the default
+internal_registry_docker_name=
+# 5001 is the default
+internal_registry_docker_port=
