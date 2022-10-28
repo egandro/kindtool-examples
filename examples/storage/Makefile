@@ -24,7 +24,7 @@ example-storage:
 	kubectl apply -f deployment/storage-worker-volume.yaml
 	kubectl apply -f deployment/storage-shared-claim.yaml
 	kubectl apply -f deployment/storage-worker-claim.yaml
-	sleep 10
+	./scripts/wait-for-service-account.sh
 	kubectl apply -f deployment/storage-pod.yaml
 	./scripts/wait-for-pod.sh storage-pod
 
