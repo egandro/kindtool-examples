@@ -18,8 +18,6 @@ example-metallb:
 	./scripts/wait-for-pod.sh bar-app
 
 test-service:
-	kubectl get svc/foo-service -o=jsonpath='{.status.loadBalancer.ingress[0].ip}'
-	echo ""
 	@kubectl delete pod testapp-pod 2>/dev/null >/dev/null || true
 	kubectl run --stdin --tty testapp-pod --image=alpine --command -- \
 		 /bin/sh -c 'apk add curl && for _ in [1 2 3 4 5 6 7 8 9 10]; do curl http://foo-service:5678; done'
