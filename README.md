@@ -73,6 +73,7 @@ Hint: the default kubeconfig approach of kind is used (that is ether `$KUBECONFI
 - [Kubeconfig](docs/kubeconfig.md)
 - [Ingress](docs/ingress.md)
 - [Internal Docker Registry](docs/intenal-registry.md)
+- [Loadbalancer (metallb)](docs/metallb.md)
 
 ### TBD
 
