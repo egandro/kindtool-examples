@@ -76,13 +76,14 @@ Hint: the default kubeconfig approach of kind is used (that is ether `$KUBECONFI
 - [Storage](docs/storage.md)
 - [Dashboard](docs/dashboard.md)
 - [Shell to k8s](docs/shell.md)
+- [Port forwarding](docs/portforwarding.md)
 
 ### TBD
 
 - accessing the cluster from developer machine (covered in basics)
 - kustomize / helm / Variables in yamls
-- port forwarding
 
 ## Sample Applications
 
 - TBD
+
