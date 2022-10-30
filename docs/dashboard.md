@@ -3,7 +3,7 @@
 You can start the kubernetes Dashboard at any time.
 
 ```
-$ kindtool dashboard
+$ kindtool dashboard [-v version of dashboard]
 ```
 
 This will install the k8s dashbard (if not present). I also creates an admin user/admin role for the dahboard and creates an access token.
