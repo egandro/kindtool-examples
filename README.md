@@ -10,8 +10,8 @@ Requirements:
 
 - docker
 - python3
-- kubectl
 - kind
+- kubectl
 
 ### Kind installation
 
@@ -37,7 +37,7 @@ sudo mv ./kind /usr/local/bin/kind
 ### Kindtool installation
 
 ```
-$ pip install kindtool
+$ pip3 install kindtool
 ```
 
 
@@ -70,6 +70,14 @@ Hint: the default kubeconfig approach of kind is used (that is ether `$KUBECONFI
 
 
 - [Basics](docs/basics.md)
+- [Kubeconfig](docs/kubeconfig.md)
+- [Ingress](docs/ingress.md)
+
+### TBD
+
+- kustomize / helm / Variables in yamls
+
+
 - [kindtool basic](docs/basics.md)
 - [kubeconfig](docs/kubeconfig.md)
 - [accessing the cluster from developer machine](docs/developermachine.md)
@@ -83,5 +91,4 @@ Hint: the default kubeconfig approach of kind is used (that is ether `$KUBECONFI
 
 ## Sample Applications
 
-- [postgres](docs/postgres.md)
-- [webapp using postgres](docs/webapp.md)
+- TBD

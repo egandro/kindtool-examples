@@ -1,7 +1,7 @@
 # Basics
 
 
-### Do something with your new cluster
+## Do something with your new cluster
 
 ```
 $ cd apps/hello_world
@@ -22,9 +22,9 @@ $ kindtool destroy -f
 
 That was not super usefull, yet! There is no networking exposed to the world.
 
-### Access your cluster from your internal network
+## Access your cluster from your internal network via kubectl / openlens
 
-#### Start server
+### Start server
 
 ```
 # your server computer (VM, Linux, developer machine in internal network, ...)
@@ -40,7 +40,7 @@ $ kubectl cluster-info --context kind-kind
 $ ls -la $HOME/.kube/config
 ```
 
-#### Prepare client
+### Prepare client
 
 Linux:
 
@@ -73,3 +73,4 @@ $ kubectl cluster-info --context kind-kind
 Hint: After you setup the local .kube/config files, you can use GUI tools like OpenLens <https://github.com/MuhammedKalkan/OpenLens>.
 
 Pitfall: After deleting the cluster on your server computer with `kindtool destroy` the config files on your clients are invalid and needs to be updated. Restarting docker / k8s is no issue.
+
