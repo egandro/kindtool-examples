@@ -38,7 +38,7 @@ spec:
               number: 5678
 ```
 
-## Pitfall
+## Pitfalls
 
 If you use multiple worker nodes, e.g. Kindfile has this entry
 
