@@ -74,22 +74,15 @@ Hint: the default kubeconfig approach of kind is used (that is ether `$KUBECONFI
 - [Ingress](docs/ingress.md)
 - [Internal Docker Registry](docs/intenal-registry.md)
 - [Loadbalancer (metallb)](docs/metallb.md)
+- [Storage](docs/storage.md)
+- [k8s dashboard](docs/dashboard.md)
 
 ### TBD
 
 - kustomize / helm / Variables in yamls
-
-
-- [kindtool basic](docs/basics.md)
-- [kubeconfig](docs/kubeconfig.md)
-- [accessing the cluster from developer machine](docs/developermachine.md)
-- [k8s dashboard](docs/dashboard.md)
-- [k8shell](docs/k8shell.md)
-- [localregistry](docs/localregistry.md)
-- [ingress](docs/ingress.md)
-- [local docer registry](docs/registry.md)
-- [loadbalancer](docs/loadbalancer.md)
-- [port forwarding](docs/ports.md)
+- accessing the cluster from developer machine (covered in basics)
+- k8shell
+- port forwarding
 
 ## Sample Applications
 
