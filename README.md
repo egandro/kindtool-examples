@@ -82,6 +82,7 @@ Hint: the default kubeconfig approach of kind is used (that is ether `$KUBECONFI
 
 - accessing the cluster from developer machine (covered in basics)
 - kustomize / helm / Variables in yamls
+- loggers
 
 ## Sample Applications
 
