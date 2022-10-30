@@ -72,6 +72,7 @@ Hint: the default kubeconfig approach of kind is used (that is ether `$KUBECONFI
 - [Basics](docs/basics.md)
 - [Kubeconfig](docs/kubeconfig.md)
 - [Ingress](docs/ingress.md)
+- [Internal Docker Registry](docs/intenal-registry.md)
 
 ### TBD
 

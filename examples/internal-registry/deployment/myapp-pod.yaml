@@ -6,7 +6,6 @@ spec:
   containers:
     - name: storage-container
       image: localhost:5001/myapp:latest
-      # carefull here with k8s
       # using :latest is not smart (but good enough for this example)
       #imagePullPolicy: IfNotPresent
       imagePullPolicy: Never

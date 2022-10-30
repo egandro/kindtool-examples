@@ -24,7 +24,9 @@ example-internal-registry:
 	kind load docker-image $(IMAGE_NAME) --name $$(kindtool get name)
 	@# prevent race condition - wait until the serice account is ready
 	./scripts/wait-for-service-account.sh
-	kubectl apply -f deployment/myapp-pod.yaml
+	@# as we use no nice tags and go by ":latest", we need to use replace
+	@# kubectl apply -f deployment/myapp-pod.yaml
+	kubectl replace --force -f deployment/myapp-pod.yaml
 	./scripts/wait-for-pod.sh myapp-pod
 
 test-service:
