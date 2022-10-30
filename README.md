@@ -74,7 +74,7 @@ Hint: the default kubeconfig approach of kind is used (that is ether `$KUBECONFI
 - [Internal Docker Registry](docs/intenal-registry.md)
 - [Loadbalancer (metallb)](docs/metallb.md)
 - [Storage](docs/storage.md)
-- [k8s dashboard](docs/dashboard.md)
+- [Dashboard](docs/dashboard.md)
 - [Shell to k8s](docs/shell.md)
 
 ### TBD
