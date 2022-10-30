@@ -75,12 +75,12 @@ Hint: the default kubeconfig approach of kind is used (that is ether `$KUBECONFI
 - [Loadbalancer (metallb)](docs/metallb.md)
 - [Storage](docs/storage.md)
 - [k8s dashboard](docs/dashboard.md)
+- [Shell to k8s](docs/shell.md)
 
 ### TBD
 
-- kustomize / helm / Variables in yamls
 - accessing the cluster from developer machine (covered in basics)
-- k8shell
+- kustomize / helm / Variables in yamls
 - port forwarding
 
 ## Sample Applications
