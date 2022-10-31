@@ -11,6 +11,7 @@ Requirements:
 - docker
 - python3
 - kind
+- kubectl
 
 ### Kind installation
 
@@ -36,18 +37,16 @@ sudo mv ./kind /usr/local/bin/kind
 ### Kindtool installation
 
 ```
-$ pip install kindtool
+$ pip3 install kindtool
 ```
 
-## Quickstarts
 
-
-### Hello World
+## Hello World
 
 ```
-$ cd 01_hello_world
+$ cd apps/hello_world
 $ kindtool up
-$ kubectl cluster-info  --context kind-kind
+$ kubectl cluster-info --context kind-kind
 $ kindtool destroy
 ```
 
@@ -58,64 +57,34 @@ Hint: You get something like `cluster kind is already running`?
 $ kind delete cluster -n kind
 ```
 
-Hindt: remove config files on termination
+Hint: remove config files on termination
 
 ```
 # this also removes the .kind folder
 $ kindtool destroy -f
 ```
 
-### Do something with your new cluster
+Hint: the default kubeconfig approach of kind is used (that is ether `$KUBECONFIG` or `$HOME/.kube/config`. kindtool offers a better approach - see [kubeconfig](docs/kubeconfig.md) )
 
-```
-$ cd 01_hello_world
-$ kindtool up
-$ kubectl create deployment hello-node --image=registry.k8s.io/echoserver:1.4
-$ kubectl get deployments
-$ kubectl get pods
-$ kindtool destroy -f
-```
+## Documentation
 
-(that was not super usefull, yet! there is no networking exposed to the world)
+- [Basics](docs/basics.md)
+- [Kubeconfig](docs/kubeconfig.md)
+- [Ingress](docs/ingress.md)
+- [Internal Docker Registry](docs/intenal-registry.md)
+- [Load balancer (metallb)](docs/metallb.md)
+- [Storage](docs/storage.md)
+- [Dashboard](docs/dashboard.md)
+- [Shell to k8s](docs/shell.md)
+- [Port forwarding](docs/portforwarding.md)
 
-### Access your cluster from your internal network
+### TBD
 
-#### Start server
-```
-# your server computer (VM, Linux, developer machine in internal network, ...)
-$ cd 01_hello_world
-$ kindtool up
-# just for info get the IP/port of the k8s API Server
-$ kubectl cluster-info --context kind-kind
-# meet your kubectl config file (this gives you godlevel access to the cluster)
-$ ls -la $HOME/.kube/config
-```
+- accessing the cluster from developer machine (covered in basics)
+- kustomize / helm / Variables in yamls
+- loggers
 
-#### Prepare client
+## Sample Applications
 
-Linux:
+- TBD
 
-```
-# install kubectl: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
-$ mkdir -p $HOME/.kube
-$ cd $HOME/.kube
-# get config from server
-$ scp <ip_or_name_of_kind_server>:/home/tha_user/.kube/config .
-# get the same information as on your server
-$ kubectl cluster-info --context kind-kind
-```
-
-
-Windows:
-
-```
-# install kubeclt (Windows): https://community.chocolatey.org/packages/kubernetes-cli
-$ mkdir %USERPROFILE%\.kube
-$ cd %USERPROFILE%\.kube
-# install the $HOME/.kube/config file here ^^^
-$ kubectl cluster-info --context kind-kind
-```
-
-Hint: after you setup the local .kube/config files, you can use GUI tools like OpenLens <https://github.com/MuhammedKalkan/OpenLens>.
-
-Pitfall: after deleting the cluster on your server computer with `kindtool destroy` the config files on your clients are also gone.

@@ -1,0 +1,3 @@
+cluster_name=example-metallb
+local_kubeconfig=true
+metallb=true
