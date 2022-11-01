@@ -15,7 +15,7 @@ Kubefile supports a cool option
 local_kubeconfig=true
 ```
 
-If this is set, the `config` file is created in the `$(Kindfile_dir).kind/config` folder.
+If this is set, the `config` file is created in the `$(kindfile_yaml_dir).kind/config` folder.
 
 You can use kindtool to get it `kindtool get kubeconfig`.
 

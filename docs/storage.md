@@ -4,11 +4,11 @@ Starting a pod k8s won't persist data after the pod has been stopped or restarte
 
 For this reason you need to deal with persistan storage.
 
-## Kindfile
+## kindfile.yaml
 
 ```
 mountpoints=true
-# default is $(Kindfile_dir)/.kind/data
+# default is $(kindfile_yaml_dir)/.kind/data
 mount_dir=
 ```
 
@@ -19,21 +19,21 @@ kindtool creates two different kind of storage points
 - `/data/shared` this will be shared among all worker nodes (including the controller)
 - `/data/worker` this is specific created per worker.
 
-Your `$(Kindfile_dir)/.kind/data` will contain the following directories:
+Your `$(kindfile_yaml_dir)/.kind/data` will contain the following directories:
 
 ```
 data/shared
 data/controller
 ```
 
-Optional if Kindfile has `worker_nodes=X`
+Optional if kindfile.yaml has `worker_nodes=X`
 ```
 data/worker1
 ...
 data/workerX
 ```
 
-Check this in `$(Kindfile_dir)/.kind/data/config.yaml`
+Check this in `$(kindfile_yaml_dir)/.kind/data/config.yaml`
 
 
 ## Using storage
@@ -53,5 +53,5 @@ specs:
 
 ## Pitfalls
 
-Docker Container may run with root users or all sorts of UID/GID Linux groups. Pay attention that `$(Kindfile_dir)/.kind/data` might have data that belongs "root" even other users. For this reason `kindtool destroy -f` may need to be run sudo'ed.
+Docker Container may run with root users or all sorts of UID/GID Linux groups. Pay attention that `$(kindfile_yaml_dir)/.kind/data` might have data that belongs "root" even other users. For this reason `kindtool destroy -f` may need to be run sudo'ed.
 

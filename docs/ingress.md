@@ -5,7 +5,7 @@ Ingress in k8s is (one way) how you access http/https from outside of your clust
 e.g. http/s://<ip-of-you-host>:<exposed port>
 
 
-## Kindfile
+## kindfile.yaml
 
 ```
 # enable ingress
@@ -40,7 +40,7 @@ spec:
 
 ## Pitfalls
 
-If you use multiple worker nodes, e.g. Kindfile has this entry
+If you use multiple worker nodes, e.g. kindfile.yaml has this entry
 
 ```
 worker_nodes=3
@@ -80,7 +80,7 @@ specs:
     "ingress-ready": "true" # automaticually labeled for worker nodes by kindtool
 ```
 
-from $(Kindfile_dir)/.kind/config/config.yaml
+from $(kindfile_yaml_dir)/.kind/config/config.yaml
 ```
 ...
 - role: worker

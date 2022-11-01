@@ -8,7 +8,7 @@ $ kindtool dashboard [-v version of dashboard]
 
 This will install the k8s dashbard (if not present). I also creates an admin user/admin role for the dahboard and creates an access token.
 
-The token is keped in `$(Kindfile_dir)/.kind/config/token`.
+The token is keped in `$(kindfile_yaml_dir)/.kind/config/token`.
 
 
 ## Accessing the dashboard
@@ -24,7 +24,7 @@ $ KUBECONFIG=$(kindtool get kubeconfig) kubectl proxy
 # open on computer running kubectl proxy
 # http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
 
-# enter the tokein in `$(Kindfile_dir)/.kind/config/token`
+# enter the tokein in `$(kindfile_yaml_dir)/.kind/config/token`
 ```
 
 

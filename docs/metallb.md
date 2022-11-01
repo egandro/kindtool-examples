@@ -3,7 +3,7 @@
 A loadbalancer is used to scale your internal services by an internal reverse proxy,
 e.g. http://my-internal-service:<port>/v1/api will be served by multiple pods but is available on one address.
 
-## Kindfile
+## kindfile.yaml
 
 ```
 metallb=true

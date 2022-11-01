@@ -1,5 +1,0 @@
-cluster_name=example-ingress
-local_kubeconfig=true
-ingress=true
-ingress_http_port=8000
-ingress_https_port=8443

@@ -4,7 +4,7 @@ In case you want to do create your own docker containers on your developer machi
 
 k8s can perfectly download any images from the official docker registry. However your images on your development machine are on your developer machine.
 
-## Kindfile
+## kindfile.yaml
 
 ```
 internal_registry=true
