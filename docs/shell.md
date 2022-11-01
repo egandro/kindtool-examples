@@ -3,7 +3,7 @@
 
 Manual way
 
-```
+```shell
 # create a pod to play with
 $ kubectl run --stdin --tty k8sshell --image=ubuntu:22.04 --command -- /bin/bash
 
@@ -16,7 +16,7 @@ $ kubectl delete pod k8sshell
 
 Shortcut in kindtool
 
-```
+```shell
 # create a pod to play with
 $ kindtool shell
 

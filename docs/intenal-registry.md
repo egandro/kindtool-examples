@@ -6,33 +6,35 @@ k8s can perfectly download any images from the official docker registry. However
 
 ## kindfile.yaml
 
-```
-internal_registry=true
+```yaml
+internal_registry: true
 # <clustername>-registry is the default
-internal_registry_docker_name=
+internal_registry_docker_name: None
 # 5001 is the default
-internal_registry_docker_port=
+internal_registry_docker_port: None
 ```
 
 ## Workflow
 
 Your app:
 
-``` Dockerfile
+Dockerfile
+
+```Dockerfile
 FROM alpine
 CMD  ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
 ```
 
 Development:
 
-```
+```shell
 $ BASE_NAME="myapp:latest"
 $ docker build -t example.com/v1/myapps/$(BASE_NAME) .
 ```
 
 ### Uploading to internal registry using `kind load`
 
-```
+```shell
 # e.g. "localhost:5001"
 $ INTERNAL_REGISTRY_PREFIX?=$(shell kindtool get internal_registry_prefix)
 
@@ -50,7 +52,7 @@ You can now use the image in your k8s deployments e.g. `localhost:5001/myapp:lat
 
 If you use lazy tags as `:latest` k8s won't replace the images so you have to force it.
 
-```
+```shell
 # wont work with ":latest" tag, as there is no change on the deployment
 $ kubectl apply -f deployment/myapp-pod.yaml
 
@@ -60,7 +62,7 @@ $ kubectl apply -f deployment/myapp-pod.yaml
 
 Kind cluster with local registry - always put the ImagePullPolicy to 'Never' or 'IfNotPresent'
 
-```
+```yaml
       #imagePullPolicy: IfNotPresent
       # or
       imagePullPolicy: Never

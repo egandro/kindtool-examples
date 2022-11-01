@@ -3,7 +3,7 @@
 
 ## Do something with your new cluster
 
-```
+```shell
 $ cd apps/hello_world
 $ kindtool up
 
@@ -26,7 +26,7 @@ That was not super usefull, yet! There is no networking exposed to the world.
 
 ### Start server
 
-```
+```shell
 # your server computer (VM, Linux, developer machine in internal network, ...)
 
 $ cd apps/hello_world
@@ -44,7 +44,7 @@ $ ls -la $HOME/.kube/config
 
 Linux:
 
-```
+```shell
 # install kubectl: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
 $ mkdir -p $HOME/.kube

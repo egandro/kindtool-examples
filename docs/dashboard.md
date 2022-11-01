@@ -2,7 +2,7 @@
 
 You can start the kubernetes Dashboard at any time.
 
-```
+```shell
 $ kindtool dashboard [-v version of dashboard]
 ```
 
@@ -18,7 +18,7 @@ After the dashboard is running you can access the dashboard via kubectl. That ca
 1) the developer machine
 2) any other machine where you have setup `kubectl` acces e.g. via a copy of the [Kubeconfig](kubeconfig.md).
 
-```
+```shell
 $ KUBECONFIG=$(kindtool get kubeconfig) kubectl proxy
 
 # open on computer running kubectl proxy

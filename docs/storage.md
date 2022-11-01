@@ -6,10 +6,10 @@ For this reason you need to deal with persistan storage.
 
 ## kindfile.yaml
 
-```
-mountpoints=true
+```yaml
+mountpoints: true
 # default is $(kindfile_yaml_dir)/.kind/data
-mount_dir=
+mount_dir: None
 ```
 
 ## Storage Points manifest
@@ -26,7 +26,8 @@ data/shared
 data/controller
 ```
 
-Optional if kindfile.yaml has `worker_nodes=X`
+Optional if kindfile.yaml has `worker_nodes=X
+`
 ```
 data/worker1
 ...
@@ -44,7 +45,7 @@ Check this in `$(kindfile_yaml_dir)/.kind/data/config.yaml`
 
 If you go with multiple workers, you might want specific serices using worker only storage. You need to select the node
 
-```
+```yaml
 specs:
   #[...]
   nodeSelector:
