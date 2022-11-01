@@ -6,13 +6,13 @@ INTERNAL_REGISTRY_PREFIX?=$(shell kindtool get internal_registry_prefix)
 
 REGISTRY_PREFIX=example.com/v1/myapps
 IMAGE_BASE_NAME=myapp
-IAMGE_VERSION?=latest
-IMAGE_NAME=$(REGISTRY_PREFIX)/${IMAGE_BASE_NAME}:$(IAMGE_VERSION)
+IMAGE_VERSION?=latest
+IMAGE_NAME=$(REGISTRY_PREFIX)/${IMAGE_BASE_NAME}:$(IMAGE_VERSION)
 
 #
 #  we don't use helm/kustomize - the image in the yaml file is "localhost:5001/myapp:latest"
 #
-INTERNAL_REGISTRY_IMAGE__NAME=$(INTERNAL_REGISTRY_PREFIX)/${IMAGE_BASE_NAME}:$(IAMGE_VERSION)
+INTERNAL_REGISTRY_IMAGE__NAME=$(INTERNAL_REGISTRY_PREFIX)/${IMAGE_BASE_NAME}:$(IMAGE_VERSION)
 
 run: start-cluster example-internal-registry test-service
 
