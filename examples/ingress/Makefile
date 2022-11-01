@@ -10,6 +10,7 @@
 
 export CLUSTER_HTTP_PORT=$(shell kindtool get ingress_http_port)
 export CLUSTER_HTTPS_PORT=$(shell kindtool get ingress_https_port)
+export CLUSTER_IP=$(shell kindtool get api_server_address)
 export KUBECONFIG?=$(shell kindtool get kubeconfig)
 
 run: start-cluster example-ingress test-service
@@ -26,8 +27,9 @@ example-ingress:
 	./scripts/wait-for-pod.sh bar
 
 test-service:
-	curl localhost:$(CLUSTER_HTTP_PORT)/foo
-	curl localhost:$(CLUSTER_HTTP_PORT)/bar
+	@# or localhost
+	curl ${CLUSTER_IP}:$(CLUSTER_HTTP_PORT)/foo
+	curl ${CLUSTER_IP}:$(CLUSTER_HTTP_PORT)/bar
 
 remove-example-ingress:
 	kubectl delete -n default ingress example-ingress
