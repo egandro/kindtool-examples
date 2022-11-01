@@ -12,6 +12,7 @@ Requirements:
 - python3
 - kind
 - kubectl
+- optional: helm
 
 ### Kind installation
 
@@ -40,6 +41,14 @@ sudo mv ./kind /usr/local/bin/kind
 $ pip3 install kindtool
 ```
 
+### Kubectl installation
+
+- Linux: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+- Windows: https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
+
+# Helm installation
+
+- https://helm.sh/docs/intro/install/
 
 ## Hello World
 
@@ -69,9 +78,9 @@ Hint: the default kubeconfig approach of kind is used (that is ether `$KUBECONFI
 ## Documentation
 
 - [Basics](docs/basics.md)
-- [Kubeconfig](docs/kubeconfig.md)
+- [Kubeconfig  Access the API server from developer machine](docs/kubeconfig.md)
 - [Ingress](docs/ingress.md)
-- [Internal Docker Registry](docs/intenal-registry.md)
+- [Internal Docker Registry](docs/internal-registry.md)
 - [Load balancer (metallb)](docs/metallb.md)
 - [Storage](docs/storage.md)
 - [Dashboard](docs/dashboard.md)
@@ -80,7 +89,6 @@ Hint: the default kubeconfig approach of kind is used (that is ether `$KUBECONFI
 
 ### TBD
 
-- accessing the cluster from developer machine (covered in basics)
 - kustomize / helm / Variables in yamls
 - loggers
 

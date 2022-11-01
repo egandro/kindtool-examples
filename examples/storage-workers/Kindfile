@@ -1,6 +1,0 @@
-cluster_name=storage-workers
-local_kubeconfig=true
-mountpoints=true
-# default is $(Kindfile_dir)/.kind/data
-mount_dir=
-worker_nodes=3

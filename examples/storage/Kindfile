@@ -1,5 +1,0 @@
-cluster_name=example-storage
-local_kubeconfig=true
-mountpoints=true
-# default is $(Kindfile_dir)/.kind/data
-mount_dir=

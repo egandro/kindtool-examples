@@ -8,6 +8,7 @@
 SHELL := /bin/bash
 export CLUSTER_HTTP_PORT=$(shell kindtool get ingress_http_port)
 export CLUSTER_HTTPS_PORT=$(shell kindtool get ingress_https_port)
+export CLUSTER_IP=$(shell kindtool get api_server_address)
 export KUBECONFIG?=$(shell kindtool get kubeconfig)
 
 run: start-cluster example-metallb-ingress test-service
@@ -24,7 +25,8 @@ example-metallb-ingress:
 	./scripts/wait-for-pod.sh bar-app
 
 test-service:
-	for _ in {1..10}; do curl localhost:$(CLUSTER_HTTP_PORT)/foo-or-bar-lb; done
+	@# or localhost
+	for _ in {1..10}; do curl ${CLUSTER_IP}:$(CLUSTER_HTTP_PORT)/foo-or-bar-lb; done
 
 remove-example-metallb-ingress:
 	kubectl delete -n default ingress example-ingress

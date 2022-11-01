@@ -26,10 +26,10 @@ example-storage-workers:
 	kubectl apply -f deployment/storage-worker-claim.yaml
 	sleep 10
 	kubectl apply -f deployment/storage-pod-worker1.yaml
-	kubectl apply -f deployment/storage-pod-worker2.yaml
-	kubectl apply -f deployment/storage-pod-worker3.yaml
 	./scripts/wait-for-pod.sh storage-pod-worker1
+	kubectl apply -f deployment/storage-pod-worker2.yaml
 	./scripts/wait-for-pod.sh storage-pod-worker2
+	kubectl apply -f deployment/storage-pod-worker3.yaml
 	./scripts/wait-for-pod.sh storage-pod-worker3
 
 test-service:

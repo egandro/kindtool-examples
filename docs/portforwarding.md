@@ -1,7 +1,7 @@
 # Port Forwarding
 
-```
-export KUBECONFIG?=$(shell kindtool get kubeconfig)
+```shell
+export KUBECONFIG=$(kindtool get kubeconfig)
 
 kubectl port-forward <pod-name> <source-pod-port>:<target-port-on-kubectl-machine>
 
