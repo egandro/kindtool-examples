@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "waiting for service account to becom e ready ready"
+echo "waiting for service account to become ready ready"
 
 # this prevents a race condition for k8s clusters during bootup
 # idea from: https://github.com/puppetlabs/puppetlabs-kubernetes/pull/247
