@@ -1,6 +1,5 @@
 # Shell to Kubernetes
 
-
 Manual way
 
 ```shell

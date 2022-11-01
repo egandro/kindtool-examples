@@ -80,7 +80,7 @@ specs:
     "ingress-ready": "true" # automaticually labeled for worker nodes by kindtool
 ```
 
-from $(kindfile_yaml_dir)/.kind/config/config.yaml
+from `$(kindfile_yaml_dir)/.kind/config/config.yaml`
 
 ```yaml
 #[...]

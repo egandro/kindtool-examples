@@ -36,7 +36,7 @@ $ docker build -t example.com/v1/myapps/$(BASE_NAME) .
 
 ```shell
 # e.g. "localhost:5001"
-$ INTERNAL_REGISTRY_PREFIX?=$(shell kindtool get internal_registry_prefix)
+$ INTERNAL_REGISTRY_PREFIX=$(kindtool get internal_registry_prefix)
 
 # add a 2nd tag to your image
 $ docker tag example.com/v1/myapps/$(BASE_NAME) $(INTERNAL_REGISTRY_PREFIX)/$(BASE_NAME)
@@ -57,7 +57,7 @@ If you use lazy tags as `:latest` k8s won't replace the images so you have to fo
 $ kubectl apply -f deployment/myapp-pod.yaml
 
 # just force the replacement (for develompment!)
-# kubectl replace --force -f deployment/myapp-pod.yaml
+$ kubectl replace --force -f deployment/myapp-pod.yaml
 ```
 
 Kind cluster with local registry - always put the ImagePullPolicy to 'Never' or 'IfNotPresent'
