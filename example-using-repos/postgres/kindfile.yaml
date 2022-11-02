@@ -1,10 +1,10 @@
 cluster_name: postgress-app
 local_kubeconfig: true
 apps:
-    - name: my-postgres
-      #- starttype: up # up, manual=default
-      - location: ../../repo/postgres
-      - vars:
-          - db: foodb
-          - user: foouser
-          - password: foo # env.DB_PASSWORD
+  - name: my-postgres
+    starttype: up # up, manual=default
+    location: ../../repo/postgres
+    vars:
+      - db: foodb
+      - user: foouser
+      - password: foo # env.DB_PASSWORD

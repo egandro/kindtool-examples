@@ -1,38 +1,38 @@
 app-definition:
   - name: postgres
-    - files:
-      - template: j2/postgres-secrets.j2.yaml
-        location: {{app_config_dir}}/config
-      - template: j2/postgres-configmap.j2.yaml
-        location: {{app_config_dir}}/config
-      - template: j2/postgres-volume.j2.yaml
-        location: {{app_config_dir}}/config
-      - template: j2/postgres-pvc.j2.yaml
-        location: {{app_config_dir}}/config
-      - template: j2/postgres-deployment.j2.yaml
-        location: {{app_config_dir}}/config
-      - template: j2/postgres-service.j2.yaml
-        location: {{app_config_dir}}/config
-      - template: j2/documentation.j2.txt
-        location: {{app_config_dir}}/config
-    - defaultvars:
-      - db: appdb
-      - user: appuser
-      - password: secret
-      - port: 5432
-    - up:
-      - kubectl apply -f {{app_config_dir}}/config/postgres-secrets.yaml
-      - kubectl apply -f {{app_config_dir}}/config/postgres-configmap.yaml
-      - kubectl apply -f {{app_config_dir}}/config/postgres-volume.yaml
-      - kubectl apply -f {{app_config_dir}}/config/postgres-pvc.yaml
-      - kubectl apply -f {{app_config_dir}}/config/postgres-deployment.yaml
-      - kubectl apply -f {{app_config_dir}}/config/postgres-service.yaml
-    - documentation:
-      - cat {{app_config_dir}}/config/documentation.txt
-    - destroy:
-      - kubectl delete -n default service postgres
-      - kubectl delete -n default deployment postgres
-      - kubectl delete persistentvolumeclaim postgres-volume-claim
-      - kubectl delete persistentvolume postgres-volume
-      - kubectl delete -n default configmap postgres-config
-      - kubectl delete -n default secret postgres-secrets
+  - file:
+    - template: j2/postgres-secrets.j2.yaml
+      location: "{{app_config_dir}}/config"
+    - template: j2/postgres-configmap.j2.yaml
+      location: "{{app_config_dir}}/config"
+    - template: j2/postgres-volume.j2.yaml
+      location: "{{app_config_dir}}/config"
+    - template: j2/postgres-pvc.j2.yaml
+      location: "{{app_config_dir}}/config"
+    - template: j2/postgres-deployment.j2.yaml
+      location: "{{app_config_dir}}/config"
+    - template: j2/postgres-service.j2.yaml
+      location: "{{app_config_dir}}/config"
+    - template: j2/documentation.j2.txt
+      location: "{{app_config_dir}}/config"
+  - defaultvars:
+    - db: appdb
+    - user: appuser
+    - password: secret
+    - port: 5432
+  - up:
+    - "kubectl apply -f {{app_config_dir}}/config/postgres-secrets.yaml"
+    - "kubectl apply -f {{app_config_dir}}/config/postgres-configmap.yaml"
+    - "kubectl apply -f {{app_config_dir}}/config/postgres-volume.yaml"
+    - "kubectl apply -f {{app_config_dir}}/config/postgres-pvc.yaml"
+    - "kubectl apply -f {{app_config_dir}}/config/postgres-deployment.yaml"
+    - "kubectl apply -f {{app_config_dir}}/config/postgres-service.yaml"
+  - documentation:
+    - cat {{app_config_dir}}/config/documentation.txt
+  - destroy:
+    - kubectl delete -n default service postgres
+    - kubectl delete -n default deployment postgres
+    - kubectl delete persistentvolumeclaim postgres-volume-claim
+    - kubectl delete persistentvolume postgres-volume
+    - kubectl delete -n default configmap postgres-config
+    - kubectl delete -n default secret postgres-secrets
