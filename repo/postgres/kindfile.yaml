@@ -15,7 +15,7 @@ app-definition:
         location: {{app_config_dir}}/config
       - template: j2/documentation.j2.txt
         location: {{app_config_dir}}/config
-    - defaultars:
+    - defaultvars:
       - db: appdb
       - user: appuser
       - password: secret
