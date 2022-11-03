@@ -94,5 +94,8 @@ Hint: the default kubeconfig approach of kind is used (that is ether `$KUBECONFI
 
 ## Sample Applications
 
-- TBD
+- redis
+- postgres
+- mysql / mariadb
+- https://signoz.io/docs/instrumentation/python/
 
