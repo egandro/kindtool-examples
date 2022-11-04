@@ -98,4 +98,8 @@ Hint: the default kubeconfig approach of kind is used (that is ether `$KUBECONFI
 - postgres
 - mysql / mariadb
 - https://signoz.io/docs/instrumentation/python/
-
+- https://www.fluentd.org/
+- https://signoz.io/docs/userguide/logs/
+- https://www.elastic.co/de/logstash/
+- https://signoz.io/docs/userguide/logstash_to_signoz/
+- https://signoz.io/docs/userguide/collect_kubernetes_pod_logs/

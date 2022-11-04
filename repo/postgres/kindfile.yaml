@@ -1,6 +1,15 @@
+# apps:
+#   - name: my-mysql
+#   - enabled: true
+#   - location: ./ # https://github.com/egandro/kindtool-examples/blob/v-0.0.4/app/mysql
+#   - vars:
+#     - db: foodb
+#     - user: fooUser
+#     - password: env.DB_PASSWORD
+
 app-definition:
   - name: postgres
-  - file:
+  - files:
     - template: j2/postgres-secrets.j2.yaml
       location: "{{app_config_dir}}/config"
     - template: j2/postgres-configmap.j2.yaml
@@ -28,7 +37,7 @@ app-definition:
     - "kubectl apply -f {{app_config_dir}}/config/postgres-deployment.yaml"
     - "kubectl apply -f {{app_config_dir}}/config/postgres-service.yaml"
   - documentation:
-    - cat {{app_config_dir}}/config/documentation.txt
+    - "cat {{app_config_dir}}/config/documentation.txt"
   - destroy:
     - kubectl delete -n default service postgres
     - kubectl delete -n default deployment postgres
