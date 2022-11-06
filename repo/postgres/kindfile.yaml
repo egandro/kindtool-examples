@@ -1,15 +1,15 @@
-# apps:
-#   - name: my-mysql
-#   - enabled: true
-#   - location: ./ # https://github.com/egandro/kindtool-examples/blob/v-0.0.4/app/mysql
-#   - vars:
-#     - db: foodb
-#     - user: fooUser
-#     - password: env.DB_PASSWORD
+apps:
+  - name: my-mysql
+    enabled: true
+    location: ./ # kindfile.yaml = default dir can also be  https://github.com/egandro/kindtool-examples/blob/v-0.0.4/app/mysql
+    vars:
+      db: foodb
+      user: fooUser
+      password: env.DB_PASSWORD
 
 app-definition:
   - name: postgres
-  - files:
+    files:
     - template: j2/postgres-secrets.j2.yaml
       location: "{{app_config_dir}}/config"
     - template: j2/postgres-configmap.j2.yaml
@@ -24,24 +24,24 @@ app-definition:
       location: "{{app_config_dir}}/config"
     - template: j2/documentation.j2.txt
       location: "{{app_config_dir}}/config"
-  - defaultvars:
-    - db: appdb
-    - user: appuser
-    - password: secret
-    - port: 5432
-  - up:
-    - "kubectl apply -f {{app_config_dir}}/config/postgres-secrets.yaml"
-    - "kubectl apply -f {{app_config_dir}}/config/postgres-configmap.yaml"
-    - "kubectl apply -f {{app_config_dir}}/config/postgres-volume.yaml"
-    - "kubectl apply -f {{app_config_dir}}/config/postgres-pvc.yaml"
-    - "kubectl apply -f {{app_config_dir}}/config/postgres-deployment.yaml"
-    - "kubectl apply -f {{app_config_dir}}/config/postgres-service.yaml"
-  - documentation:
-    - "cat {{app_config_dir}}/config/documentation.txt"
-  - destroy:
-    - kubectl delete -n default service postgres
-    - kubectl delete -n default deployment postgres
-    - kubectl delete persistentvolumeclaim postgres-volume-claim
-    - kubectl delete persistentvolume postgres-volume
-    - kubectl delete -n default configmap postgres-config
-    - kubectl delete -n default secret postgres-secrets
+    defaultvars:
+      db: appdb
+      user: appuser
+      password: secret
+      port: 5432
+    up:
+      - "kubectl apply -f {{app_config_dir}}/config/postgres-secrets.yaml"
+      - "kubectl apply -f {{app_config_dir}}/config/postgres-configmap.yaml"
+      - "kubectl apply -f {{app_config_dir}}/config/postgres-volume.yaml"
+      - "kubectl apply -f {{app_config_dir}}/config/postgres-pvc.yaml"
+      - "kubectl apply -f {{app_config_dir}}/config/postgres-deployment.yaml"
+      - "kubectl apply -f {{app_config_dir}}/config/postgres-service.yaml"
+    documentation:
+      - "cat {{app_config_dir}}/config/documentation.txt"
+    destroy:
+      - kubectl delete -n default service postgres
+      - kubectl delete -n default deployment postgres
+      - kubectl delete persistentvolumeclaim postgres-volume-claim
+      - kubectl delete persistentvolume postgres-volume
+      - kubectl delete -n default configmap postgres-config
+      - kubectl delete -n default secret postgres-secrets
